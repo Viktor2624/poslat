@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Kamošská hra</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .game {
+      text-align: center;
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 12px;
+      width: 80%;
+      border-radius: 8px;
+      border: none;
+      margin-top: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      background: #4fd1c5;
+      color: #002;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #38b2ac;
+    }
+
+    .hint {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .win {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #0f2027;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .win h1 {
+      font-size: 48px;
+      color: #4fd1c5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game" id="game">
+    <h1></h1>
+    <p>Otázka pre teba</p>
+
+    <p><strong>Odpovedz na otázku/strong></p>
+    <p>Ako sa máš?</p>
+
+    <input type="text" id="answer" placeholder="Napíš odpoveď...">
+    <br>
+    <button onclick="checkAnswer()">Potvrdiť</button>
+
+    <div class="hint">
+      
+    </div>
+  </div>
+
+  <div class="win" id="win">
+    <h1>Mám ťa úprimne rád! 🫶<br><small>(a vážim si ťa)</small></h1>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById("answer").value.trim();
+      if (answer.length > 0) {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("win").style.display = "flex";
+      } else {
+        alert("Aspoň niečo napíš 😄");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
